@@ -109,6 +109,20 @@ function render(filteredTemplates = templates) {
         showToast('Copy failed — select and copy manually');
       }
     });
+    li.querySelector('.thumb img').addEventListener('click', (e) => {
+      addClickEffect(e.target);
+      window.open(t.templateLink, '_blank');
+    });
+
+    li.querySelector('.name').addEventListener('click', (e) => {
+      addClickEffect(e.target);
+      window.open(t.templateLink, '_blank');
+    });
+
+    function addClickEffect(element) {
+      element.classList.add('click-effect');
+      setTimeout(() => element.classList.remove('click-effect'), 300);
+    }
     grid.appendChild(li);
   });
 }
