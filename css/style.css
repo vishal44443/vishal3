@@ -36,7 +36,7 @@ body{margin:0;background:linear-gradient(180deg,var(--bg),#eef2ff 120%);color:#0
 .thumb img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
 
 .card-body{padding:12px;display:flex;align-items:center;justify-content:space-between;gap:10px}
-.name{font-weight:700;font-size:14px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.name{font-weight:700;font-size:14px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;display:inline-block}
 .sub{font-size:12px;color:var(--muted);margin-top:4px}
 
 .actions{display:flex;gap:8px;align-items:center}
@@ -110,4 +110,37 @@ button.copy.secondary{background:transparent;color:var(--accent-600);border:1px 
     font-size: 12px;
     text-align: center;
   }
+
+  .thumb img:hover, .name:hover {
+    transform: scale(1.02); /* Subtle scaling for smaller screens */
+    box-shadow: none; /* Remove shadow for simplicity */
+  }
+
+  .thumb img:active, .name:active {
+    transform: scale(1); /* No scaling on click for mobile */
+  }
+}
+
+.thumb img, .name {
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.thumb img:hover, .name:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 80px rgba(0, 0, 0, 0.2);
+}
+
+.thumb img:active, .name:active {
+  transform: scale(0.95);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.name:hover {
+  transform: scale(1.1);
+  box-shadow: none;
+}
+
+.name:active {
+  transform: scale(1.05);
 }
